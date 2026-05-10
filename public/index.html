@@ -6,7 +6,7 @@
     <title>DrMax - Sistem de Programări</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
     <style>
       * {
         margin: 0;
@@ -17,39 +17,42 @@
       :root {
         --primary: #0d7377;
         --primary-light: #14919b;
-        --primary-dark: #0a5a62;
-        --accent: #ffd60a;
-        --success: #06d6a0;
-        --danger: #ef476f;
-        --background: #f8f9fa;
-        --surface: #ffffff;
-        --foreground: #1a1a1a;
-        --text-secondary: #666666;
-        --border: #e0e0e0;
-        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+        --danger: #ef4444;
+        --success: #10b981;
+        --background: #ffffff;
+        --surface: rgba(255, 255, 255, 0.7);
+        --surface-dark: rgba(255, 255, 255, 0.5);
+        --border: rgba(255, 255, 255, 0.2);
+        --text-primary: #111827;
+        --text-secondary: #6b7280;
+        --text-tertiary: #9ca3af;
+        --header-bg: linear-gradient(135deg, #0d7377 0%, #14919b 100%);
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background-color: var(--background);
-        color: var(--foreground);
-        line-height: 1.6;
+        color: var(--text-primary);
+        line-height: 1.5;
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 0 1rem;
       }
 
-      /* Header - Premium Design */
+      /* Header - Premium Colored Panel */
       .header {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-        padding: 3rem 1rem;
+        background: var(--header-bg);
+        padding: 3.5rem 1rem;
         text-align: center;
-        color: white;
+        margin-bottom: 2rem;
+        box-shadow: 0 12px 40px 0 rgba(13, 115, 119, 0.2);
         position: relative;
         overflow: hidden;
       }
@@ -61,7 +64,7 @@
         right: -10%;
         width: 400px;
         height: 400px;
-        background: rgba(255, 255, 255, 0.1);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
         border-radius: 50%;
       }
 
@@ -72,7 +75,7 @@
         left: -5%;
         width: 300px;
         height: 300px;
-        background: rgba(255, 255, 255, 0.05);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
         border-radius: 50%;
       }
 
@@ -81,38 +84,126 @@
         z-index: 1;
       }
 
+      .header-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .header-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .header-icon {
+        font-size: 2rem;
+        opacity: 0.9;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .header-icon:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+
+      .header-icon:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+
       .header h1 {
+        font-family: 'Playfair Display', serif;
         font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.5px;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
       .header p {
         font-size: 1rem;
-        opacity: 0.9;
-        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 400;
+        letter-spacing: 0.3px;
       }
 
-      /* Buttons */
-      .button {
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        padding: 0.875rem 1.75rem;
-        border-radius: 0.75rem;
-        cursor: pointer;
+      .header-features {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .header-feature {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.85);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .header-feature::before {
+        content: '✓';
+        font-weight: 700;
         font-size: 1rem;
+      }
+
+      /* Glass Buttons */
+      .button {
+        background: var(--surface);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        color: var(--primary);
+        padding: 0.875rem 1.75rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 0.95rem;
         font-weight: 600;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-sm);
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Inter', sans-serif;
+        box-shadow: 0 8px 32px 0 rgba(13, 115, 119, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .button:hover::before {
+        left: 100%;
       }
 
       .button:hover {
-        background-color: var(--primary-dark);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 12px 40px 0 rgba(13, 115, 119, 0.2);
         transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
       }
 
       .button:active {
@@ -120,18 +211,18 @@
       }
 
       .button-danger {
-        background-color: var(--danger);
+        color: var(--danger);
       }
 
       .button-danger:hover {
-        background-color: #e63a5a;
-        box-shadow: var(--shadow-md);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 12px 40px 0 rgba(239, 68, 68, 0.2);
       }
 
       .button-group {
         display: flex;
         gap: 1rem;
-        margin-bottom: 2.5rem;
+        margin: 2rem 0;
         flex-wrap: wrap;
       }
 
@@ -144,7 +235,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.4);
         animation: fadeIn 0.3s ease;
         backdrop-filter: blur(4px);
       }
@@ -161,20 +252,23 @@
       }
 
       .modal-content {
-        background-color: var(--surface);
+        background: var(--surface);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
         padding: 2.5rem;
-        border-radius: 1.25rem;
+        border-radius: 2rem;
         width: 90%;
         max-width: 550px;
         max-height: 90vh;
         overflow-y: auto;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 20px 60px 0 rgba(13, 115, 119, 0.3);
         animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       @keyframes slideUp {
         from {
-          transform: translateY(50px);
+          transform: translateY(30px);
           opacity: 0;
         }
         to {
@@ -188,20 +282,22 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
-        border-bottom: 2px solid var(--background);
+        border-bottom: 1px solid rgba(13, 115, 119, 0.1);
         padding-bottom: 1rem;
       }
 
       .modal-header h2 {
-        font-size: 1.75rem;
-        color: var(--foreground);
+        font-size: 1.5rem;
         font-weight: 700;
+        color: var(--text-primary);
       }
 
       .close-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
+        background: var(--surface-dark);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        font-size: 1.5rem;
         cursor: pointer;
         color: var(--text-secondary);
         transition: all 0.2s ease;
@@ -214,8 +310,8 @@
       }
 
       .close-btn:hover {
-        background-color: var(--background);
-        color: var(--foreground);
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--text-primary);
       }
 
       /* Form */
@@ -225,10 +321,10 @@
 
       .form-group label {
         display: block;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
         font-weight: 600;
-        color: var(--foreground);
-        font-size: 0.95rem;
+        color: var(--text-primary);
+        font-size: 0.9rem;
       }
 
       .form-group input,
@@ -236,12 +332,15 @@
       .form-group textarea {
         width: 100%;
         padding: 0.875rem;
-        border: 2px solid var(--border);
-        border-radius: 0.75rem;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
         transition: all 0.3s ease;
-        background-color: var(--background);
+        color: var(--text-primary);
       }
 
       .form-group textarea {
@@ -249,12 +348,18 @@
         min-height: 120px;
       }
 
+      .form-group input::placeholder,
+      .form-group select::placeholder,
+      .form-group textarea::placeholder {
+        color: var(--text-tertiary);
+      }
+
       .form-group input:focus,
       .form-group select:focus,
       .form-group textarea:focus {
         outline: none;
-        border-color: var(--primary);
-        background-color: var(--surface);
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(13, 115, 119, 0.4);
         box-shadow: 0 0 0 4px rgba(13, 115, 119, 0.1);
       }
 
@@ -262,25 +367,29 @@
       .appointments-list {
         display: grid;
         gap: 1.25rem;
+        margin: 2rem 0;
       }
 
       .appointment-card {
-        background-color: var(--surface);
+        background: var(--surface);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--border);
-        border-radius: 1rem;
+        border-radius: 1.5rem;
         padding: 1.75rem;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         gap: 1.5rem;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 8px 32px 0 rgba(13, 115, 119, 0.1);
       }
 
       .appointment-card:hover {
-        box-shadow: var(--shadow-md);
+        background: rgba(255, 255, 255, 0.85);
+        border-color: rgba(13, 115, 119, 0.3);
+        box-shadow: 0 12px 40px 0 rgba(13, 115, 119, 0.2);
         transform: translateY(-2px);
-        border-color: var(--primary);
       }
 
       .appointment-info {
@@ -288,19 +397,16 @@
       }
 
       .appointment-name {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: 700;
-        color: var(--foreground);
+        color: var(--text-primary);
         margin-bottom: 0.75rem;
       }
 
       .appointment-detail {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: var(--text-secondary);
         margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
       }
 
       .appointment-actions {
@@ -309,23 +415,24 @@
       }
 
       .delete-btn {
-        background-color: var(--danger);
-        color: white;
-        border: none;
+        background: var(--surface-dark);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: var(--danger);
         padding: 0.625rem 1.25rem;
-        border-radius: 0.75rem;
+        border-radius: 0.875rem;
         cursor: pointer;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: var(--shadow-sm);
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Inter', sans-serif;
       }
 
       .delete-btn:hover {
-        background-color: #e63a5a;
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
+        background: rgba(239, 68, 68, 0.2);
+        border-color: rgba(239, 68, 68, 0.5);
+        box-shadow: 0 8px 24px 0 rgba(239, 68, 68, 0.15);
       }
 
       /* Empty State */
@@ -336,20 +443,20 @@
       }
 
       .empty-state-icon {
-        font-size: 3.5rem;
+        font-size: 4rem;
         margin-bottom: 1rem;
-        opacity: 0.5;
+        opacity: 0.6;
       }
 
       .empty-state p {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0.5rem;
         font-weight: 500;
       }
 
       .empty-state p:last-child {
-        font-size: 0.95rem;
-        opacity: 0.8;
+        font-size: 0.9rem;
+        color: var(--text-tertiary);
       }
 
       /* Loading */
@@ -359,16 +466,15 @@
         color: var(--text-secondary);
       }
 
-      .loading::after {
-        content: '';
+      .spinner {
         display: inline-block;
         width: 20px;
         height: 20px;
-        border: 3px solid var(--border);
+        border: 3px solid rgba(13, 115, 119, 0.2);
         border-top-color: var(--primary);
         border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin-left: 0.5rem;
+        animation: spin 1s linear infinite;
+        margin-left: 0.75rem;
       }
 
       @keyframes spin {
@@ -378,21 +484,24 @@
       /* Toast */
       .toast {
         position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        padding: 1rem 1.5rem;
-        border-radius: 0.75rem;
+        bottom: 2rem;
+        right: 2rem;
+        padding: 1.25rem 2rem;
+        border-radius: 1rem;
         color: white;
         font-weight: 600;
         animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 2000;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 12px 40px 0 rgba(13, 115, 119, 0.3);
         font-size: 0.95rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       @keyframes slideInUp {
         from {
-          transform: translateY(100px);
+          transform: translateY(120px);
           opacity: 0;
         }
         to {
@@ -402,47 +511,56 @@
       }
 
       .toast.success {
-        background-color: var(--success);
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 184, 145, 0.9) 100%);
       }
 
       .toast.error {
-        background-color: var(--danger);
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%);
       }
 
       /* Responsive */
-      @media (max-width: 768px) {
+      @media (max-width: 640px) {
         .header {
           padding: 2rem 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .header-icons {
+          gap: 1.5rem;
+        }
+
+        .header-icon {
+          font-size: 1.5rem;
+        }
+
+        .header-features {
+          gap: 1.5rem;
+          flex-direction: column;
         }
 
         .header h1 {
           font-size: 2rem;
         }
 
-        .header p {
-          font-size: 0.9rem;
-        }
-
         .appointment-card {
           flex-direction: column;
-          padding: 1.25rem;
+          border-radius: 1.25rem;
         }
 
         .button-group {
           flex-direction: column;
+          gap: 0.75rem;
         }
 
         .button {
           width: 100%;
+          border-radius: 0.875rem;
         }
 
         .modal-content {
-          padding: 1.5rem;
+          padding: 1.75rem;
           width: 95%;
-        }
-
-        .modal-header h2 {
-          font-size: 1.5rem;
+          border-radius: 1.5rem;
         }
 
         .toast {
@@ -457,8 +575,22 @@
   <body>
     <div class="header">
       <div class="header-content">
+        <div class="header-badge">🏆 PREMIUM DENTAL CLINIC MANAGEMENT</div>
+        
+        <div class="header-icons">
+          <div class="header-icon">🦷</div>
+          <div class="header-icon">✨</div>
+          <div class="header-icon">💎</div>
+        </div>
+        
         <h1>DrMax</h1>
         <p>Sistem de gestionare a programărilor - doctor 2</p>
+        
+        <div class="header-features">
+          <div class="header-feature">Programări Sigure</div>
+          <div class="header-feature">Sincronizare Automată</div>
+          <div class="header-feature">Interfață Premium</div>
+        </div>
       </div>
     </div>
 
@@ -469,7 +601,7 @@
       </div>
 
       <div id="appointmentsList" class="appointments-list">
-        <div class="loading">Se încarcă...</div>
+        <div class="loading">Se încarcă<div class="spinner"></div></div>
       </div>
     </div>
 
@@ -551,7 +683,7 @@
 
         setTimeout(() => {
           toast.remove();
-        }, 3000);
+        }, 3500);
       }
 
       async function handleSubmit(event) {
