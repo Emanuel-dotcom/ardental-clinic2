@@ -840,8 +840,20 @@
       }).join('');
 
       // Zi selectată
-      const selectedDate =
-        getSelectedDate() || sortedDates[0];
+     let selectedDate =
+  getSelectedDate() || sortedDates[0];
+
+// dacă data din URL nu mai există
+if (!grouped[selectedDate]) {
+
+  selectedDate = sortedDates[0];
+
+  window.history.replaceState(
+    {},
+    document.title,
+    `?date=${selectedDate}`
+  );
+}
 
       const selectedAppointments =
         grouped[selectedDate] || [];
@@ -998,13 +1010,20 @@
         throw new Error('Failed');
       }
 
-      showToast(
-        'Toate programările au fost șterse',
-        'success'
-      );
+     showToast(
+  'Toate programările au fost șterse',
+  'success'
+);
 
-      loadAppointments();
+// curăță URL-ul
+window.history.replaceState(
+  {},
+  document.title,
+  window.location.pathname
+);
 
+// reîncarcă lista
+loadAppointments();
     } catch (error) {
 
       console.error(error);
