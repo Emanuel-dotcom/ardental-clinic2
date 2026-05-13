@@ -812,7 +812,23 @@
             new Date(`${y1}-${m1}-${d1}`)
           );
         });
+if (sortedDates.length === 0) {
 
+  container.innerHTML = `
+    <div class="empty-state">
+      <div class="empty-state-icon">📅</div>
+      <p>Nu există programări</p>
+    </div>
+  `;
+
+  window.history.replaceState(
+    {},
+    document.title,
+    window.location.pathname
+  );
+
+  return;
+}
       // NAVIGARE
       nav.innerHTML = sortedDates.map((date) => {
 
